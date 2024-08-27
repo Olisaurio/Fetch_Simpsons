@@ -1,0 +1,158 @@
+:root {
+  --yellow: #F7E05C; /* Color amarillo característico de Los Simpsons */
+  --blue: #004D7A;   /* Color azul oscuro de Los Simpsons */
+  --white: #FFFFFF;  /* Color blanco */
+  --grey: #E0E0E0;   /* Color gris claro para el fondo de la card */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--white);
+}
+
+header {
+  background-color: var(--yellow);
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  color: var(--blue);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.form-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 1px solid var(--grey);
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  background-color: var(--blue);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #003b58;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.cardCharacter{
+  width: max-content;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: dashed 2px red;
+  padding: .5rem;
+}
+
+.cardCharacter > img{
+  width: 100%;
+}
+
+.cardCharacter > p{
+  width: 8.5rem;
+}
+
+
+.card {
+  background-color: var(--grey);
+  width: 15rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 60%;
+  height: 50%;
+}
+
+.card-content {
+  padding: 10px;
+  text-align: center;
+}
+
+.card-content h3 {
+  margin: 10px 0;
+}
+
+.card-content p {
+  color: #333;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.modal-content input {
+  padding: 10px;
+  border: 1px solid var(--grey);
+  border-radius: 5px;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.close:hover {
+  color: red;
+}
