@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Cards</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <button class="btn-top"><a href="index.html">Atras</a></button>
+    <header>
+        <h1>Generador de Cards de Los Simpsons</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            <input type="text" id="search" placeholder="Buscar personaje...">
+            <button id="generate-card">Generar Card</button>
+            <button id="generate-multiple">Generar Varias Cards</button>
+        </div>
+        <div id="cardsContainer" class="cardsContainer"></div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <label for="card-quantity">¿Cuántas cards deseas crear?</label>
+            <input type="number" id="card-quantity" min="1" max="10">
+            <button id="confirm-generate">Generar</button>
+        </div>
+    </div>
+
+    <script src="ram.js"></script>
+</body>
+</html>

@@ -1,33 +1,41 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de Cards</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Menu de Series</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .button:hover {
+            background-color: #ccc;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Generador de Cards de Los Simpsons</h1>
-    </header>
-    <main>
-        <div class="form-container">
-            <input type="text" id="search" placeholder="Buscar personaje...">
-            <button id="generate-card">Generar Card</button>
-            <button id="generate-multiple">Generar Varias Cards</button>
-        </div>
-        <div id="cardsContainer" class="cardsContainer"></div>
-    </main>
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <label for="card-quantity">¿Cuántas cards deseas crear?</label>
-            <input type="number" id="card-quantity" min="1" max="10">
-            <button id="confirm-generate">Generar</button>
-        </div>
+    <h1>Menu de Series</h1>
+    <div class="button-container">
+        <button class="button" ><a href="simpson.html">Simpsons</a></button>
+        <button class="button" ><a href="ram.html">Rick and Morty</a></button>
     </div>
-
-    <script src="scripts.js"></script>
 </body>
 </html>

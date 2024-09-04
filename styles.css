@@ -156,3 +156,15 @@ button:hover {
 .close:hover {
   color: red;
 }
+
+
+.btn-top{
+  margin: 1rem;
+  padding: 1rem;
+  background: #003b58;
+  position: absolute;
+}
+
+.btn-top > a{
+  color: #E0E0E0;
+}
