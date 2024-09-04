@@ -1,18 +1,25 @@
 const URL = "https://thesimpsonsquoteapi.glitch.me/quotes";
-
 const btnCreate = document.getElementById("generate-card");
 const btnGenerateMultiple = document.getElementById("generate-multiple");
 const cardsContainer = document.getElementById("cardsContainer");
 const searchInput = document.getElementById("search");
 
-btnCreate.addEventListener("click", getCharacter);
+let characterSet = new Set(); 
+let characters = [];
+
+btnCreate.addEventListener("click", () => {
+    cardsContainer.innerHTML = '';
+    getCharacter();
+});
+
 btnGenerateMultiple.addEventListener("click", showModal);
+
 searchInput.addEventListener("input", filterCharacters);
 
 function getCharacter() {
     fetch(URL)
         .then(response => response.json())
-        .then(data => createCharacter(data[0]));
+        .then(data => createCharacter(data[0])); 
 }
 
 function createCharacter(item) {
@@ -57,16 +64,38 @@ document.getElementById("confirm-generate").onclick = function () {
     }
 
     cardsContainer.innerHTML = '';
+    characterSet.clear(); 
+    characters = []; 
 
-
-    for (let i = 0; i < quantity; i++) {
-        fetch(URL)
-            .then(response => response.json())
-            .then(data => createCharacter(data[0]));
-    }
-
+    generateMultipleCharacters(quantity);
     closeModal();
 };
+
+function generateMultipleCharacters(quantity) {
+    if (characters.length < quantity) {
+        fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                const characterData = data[0]; // Acceder al primer elemento del arreglo
+                const characterName = characterData.character;
+
+                if (!characterSet.has(characterName)) {
+                    characterSet.add(characterName);
+                    characters.push(characterData);
+                    createCharacter(characterData);
+
+                    // Llamar nuevamente si no se ha alcanzado la cantidad deseada
+                    if (characters.length < quantity) {
+                        generateMultipleCharacters(quantity);
+                    }
+                } else {
+                    // Si el personaje ya existe, llamar nuevamente
+                    generateMultipleCharacters(quantity);
+                }
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+}
 
 function filterCharacters() {
     const searchTerm = searchInput.value.toLowerCase();
